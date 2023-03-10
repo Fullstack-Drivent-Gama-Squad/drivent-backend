@@ -35,7 +35,7 @@ export async function getDefaultEvent(_req: Request, res: Response) {
 
 export async function postEvent(req: Request, res: Response) {
   const { title, backgroundImageUrl, logoImageUrl } = req.body as PostEvent;
-
+  
   try {
     await eventsService.postEvent({title, backgroundImageUrl, logoImageUrl})
     return res.sendStatus(httpStatus.OK)
