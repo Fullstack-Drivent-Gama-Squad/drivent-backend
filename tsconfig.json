@@ -26,5 +26,5 @@
   "include": [
     "src",
     "tests"
-  ]
+, "src/schemas/authentication-schemas.ts"  ]
 }
