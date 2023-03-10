@@ -1,4 +1,5 @@
 import { notFoundError } from "@/errors";
+import { PostEvent } from "@/protocols";
 import eventRepository from "@/repositories/event-repository";
 import { exclude } from "@/utils/prisma-utils";
 import { Event } from "@prisma/client";
@@ -24,9 +25,20 @@ async function isCurrentEventActive(): Promise<boolean> {
   return now.isAfter(eventStartsAt) && now.isBefore(eventEndsAt);
 }
 
+async function postEvent(event: PostEvent) {
+  const {title, backgroundImageUrl, logoImageUrl} = event
+
+  try {
+    await eventRepository.postEvent({title, backgroundImageUrl, logoImageUrl})
+  } catch (error) {
+    throw error
+  }
+}
+
 const eventsService = {
   getFirstEvent,
   isCurrentEventActive,
+  postEvent
 };
 
 export default eventsService;
