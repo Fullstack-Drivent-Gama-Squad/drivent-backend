@@ -30,3 +30,9 @@ export type RequestError = {
   name: string,
   message: string,
 };
+
+export type PostEvent = {
+  title: string,
+  backgroundImageUrl: string,
+  logoImageUrl: string
+}
