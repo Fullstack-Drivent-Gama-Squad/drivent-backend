@@ -55,19 +55,19 @@ async function changeBookingRoomById(userId: number, roomId: number) {
   return bookingRepository.upsertBooking({
     id: booking.id,
     roomId,
-    userId
+    userId,
   });
 }
 
-async function checkBookingByRoomId(roomId: number){
-  return await bookingRepository.findByRoomId(roomId)
+async function checkBookingByRoomId(roomId: number) {
+  return await bookingRepository.findByRoomId(roomId);
 }
 
 const bookingService = {
   bookingRoomById,
   getBooking,
   changeBookingRoomById,
-  checkBookingByRoomId
+  checkBookingByRoomId,
 };
 
 export default bookingService;
