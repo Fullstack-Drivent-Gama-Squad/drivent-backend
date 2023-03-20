@@ -12,9 +12,18 @@ async function getActivities(dayId: number) {
   });
 }
 
+async function countBookingsByActivity(activityId: number) {
+  return prisma.activityBooking.count({
+    where: {
+      activityId,
+    },
+  });
+}
+
 const activityRepository = {
   getSections,
   getActivities,
+  countBookingsByActivity,
 };
 
 export default activityRepository;
