@@ -133,18 +133,25 @@ model Booking {
 
 model Activity {
   id        Int      @id @default(autoincrement())
-  date      DateTime @db.Date
+  dayId     Int
   sectionId Int
   name      String
   startHour DateTime @db.Time(6)
   endHour   DateTime @db.Time(6)
   vacancies Int
-  Section   Section  @relation(fields: [sectionId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "activity_fk0")
+  Day       Day      @relation(fields: [dayId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "activity_fk0")
+  Section   Section  @relation(fields: [sectionId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "activity_fk1")
 }
 
 model Section {
   id       Int        @id @default(autoincrement())
   name     String
+  Activity Activity[]
+}
+
+model Day {
+  id       Int        @id @default(autoincrement())
+  day      DateTime   @db.Date
   Activity Activity[]
 }
 
