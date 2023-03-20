@@ -16,7 +16,7 @@ async function main() {
     });
   }
 
-  let hotel = await prisma.hotel.findFirst();
+  /*let hotel = await prisma.hotel.findFirst();
   if(!hotel){
     await prisma.hotel.createMany({
       data:[
@@ -37,7 +37,7 @@ async function main() {
         }
       ]
     })
-  }
+  }*/
 
   console.log({ event });
 }
