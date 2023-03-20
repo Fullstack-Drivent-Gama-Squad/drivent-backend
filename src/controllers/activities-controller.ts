@@ -12,17 +12,16 @@ export async function getSections(req: AuthenticatedRequest, res: Response) {
     }
 };
 
-export async function getActivitiesBySection(req: AuthenticatedRequest, res: Response) {
-    const {sectionId} = req.params;
-    const {dayId} = req.query;
+export async function getActivitiesByDay(req: AuthenticatedRequest, res: Response) {
+    const {dayId} = req.params;
 
-    if(!dayId || !sectionId){
+    if(!dayId){
         return res.status(400).send(httpStatus["400_MESSAGE"]);
     };
 
     try{
-        const activities = await activityService.getActivities(Number(sectionId), Number(dayId));
-        return res.send();
+        const activities = await activityService.getActivities(Number(dayId));
+        return res.send(activities);
     } catch(err){
         console.log(err)
     }

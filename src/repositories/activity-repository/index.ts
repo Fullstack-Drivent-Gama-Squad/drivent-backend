@@ -4,7 +4,7 @@ async function getSections(){
     return prisma.section.findMany();
 };
 
-async function getActivities(sectionId: number, dayId: number) {
+async function getActivities(dayId: number) {
     return prisma.activity.findMany({
         where:{
             dayId: dayId

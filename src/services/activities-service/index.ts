@@ -4,8 +4,8 @@ async function getSections(){
     return await activityRepository.getSections();
 };
 
-async function getActivities(sectionId: number, dayId: number) {
-    return await activityRepository.getActivities(sectionId, dayId);
+async function getActivities(dayId: number) {
+    return await activityRepository.getActivities(dayId);
 }
 
 const activityService = {
