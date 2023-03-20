@@ -8,6 +8,6 @@ export function invalidDataError(details: string[]): ApplicationInvalidateDataEr
   };
 }
 
-type ApplicationInvalidateDataError = ApplicationError & {
+export type ApplicationInvalidateDataError = ApplicationError & {
   details: string[];
 };
