@@ -22,7 +22,7 @@ npm i
 5. Run all migrations
 
 ```bash
-npm run migration:run
+npm run dev:migration:run
 ```
 
 6. Seed db
@@ -31,7 +31,13 @@ npm run migration:run
 npm run dev:seed
 ```
 
-6. Run the back-end in a development environment:
+7. Start redis server:
+
+```bash
+sudo service redis-server start
+```
+
+8. Run the back-end in a development environment:
 
 ```bash
 npm run dev
